@@ -1,4 +1,4 @@
-# Slider jQuery Plugin
+# Kiss Slider jQuery Plugin
 
 ## Description
 
