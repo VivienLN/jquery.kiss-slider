@@ -4,7 +4,9 @@
 
 Kiss Slider is intended to be a flexible, responsive jquery slideshow, yet simple.
 
-## Basic Markup
+## Quick Start
+
+### HTML
 ```html
 <ul id="kiss-slider">
 	<li><img src="img/slide01.jpg" /></li>
@@ -16,4 +18,30 @@ Kiss Slider is intended to be a flexible, responsive jquery slideshow, yet simpl
 </ul>
 ```
 
-## Options
+### CSS
+
+No need to write specific CSS for this plugin. The minimum css (eg. absolute positioning, overflow, etc.) are handled by the plugin.
+You can however define styles in CSS, to not have to wait for everything to be ready before applying styles.
+Remember that this is optional.
+
+The minimum CSS is as follow:
+```css
+#slider .slide { position: absolute; left: 0; top: 0; }
+#slider { position: relative; overflow: hidden; }
+```
+The selector are given as an example.
+
+Note: If you intend to manually define slider dimensions, you must pass them to the plugin call, even if defined in the CSS.
+
+### Javascript
+
+The minimum javascript is as follow:
+
+```js
+$(window).load(function() {
+	$('#kiss-slider').kissSlider();
+});
+```
+Note: Calling the plugin on window.load() allows to properly calculate the slider dimensions, if you do not specify them explicitely.
+
+## Plugin parameters
