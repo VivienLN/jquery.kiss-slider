@@ -9,6 +9,7 @@
 		<script src="../jquery.kiss-slider.js"></script>
 		<style type="text/css">
 			*{padding:0;margin:0;}
+			ul {list-style-type:none;}
 		</style>
 	</head>
 	<body>
@@ -20,11 +21,28 @@
 			<li><img src="img/slide05.jpg" /></li>
 			<li><img src="img/slide06.jpg" /></li>
 		</ul>
+		<a href="#" class="previous">previous</a>
+		<a href="#" class="next">next</a>
 		<p>This is the basic usage of the plugin.</p>
 		<p>images used:</p>
 		<ul>
 			<li><a href="http://j3concepts.deviantart.com/art/Time-Travel-in-a-Time-of-Regret-319922355">http://j3concepts.deviantart.com/art/Time-Travel-in-a-Time-of-Regret-319922355</a></li>
 			<li><a href="http://88grzes.deviantart.com/art/Swamp-Ambush-2-453265331">http://88grzes.deviantart.com/art/Swamp-Ambush-2-453265331</a></li>
 		</ul>
+		<script type="text/Javascript">
+			(function($) {
+				$(window).load(function() {
+					$('#kiss-slider').kissSlider({
+						// slideWidth: 900,
+						easing: 'linear',
+						prevSelector: '.previous',
+						nextSelector: '.next',
+						// beforeSlide: function() {console.log('before');},
+						// afterSlide: function() {console.log('after');},
+						// noAnim: true
+					});
+				});
+			})(jQuery);
+		</script>
 	</body>
 </html>
