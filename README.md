@@ -2,7 +2,7 @@
 
 ## Description
 
-Kiss Slider is intended to be a flexible, responsive jquery slideshow, yet simple.
+Kiss Slider is intended to be a flexible, responsive, yet simple jquery slideshow.
 
 ## Quick Start
 
