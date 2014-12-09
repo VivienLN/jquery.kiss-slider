@@ -1,0 +1,629 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"devel",
+				"developpeur"
+			],
+			[
+				"developer",
+				"game_developer"
+			],
+			[
+				"font",
+				"font-style"
+			],
+			[
+				"loop",
+				"loop-featured-posts"
+			],
+			[
+				"background",
+				"background-color"
+			],
+			[
+				"table-",
+				"table-cell"
+			],
+			[
+				"pk_infinite_scroll_get",
+				"pk_infinite_scroll_get_default_config"
+			],
+			[
+				"pk_get",
+				"pk_infinite_scroll_get_prefix"
+			],
+			[
+				"borer-bottom",
+				"border-bottom-width"
+			],
+			[
+				"table",
+				"table-cell"
+			],
+			[
+				"inline",
+				"inline-block"
+			],
+			[
+				"data",
+				"data_playasia"
+			],
+			[
+				"for",
+				"foreach	foreach …"
+			],
+			[
+				"preg",
+				"preg_filter"
+			],
+			[
+				"urle",
+				"urlencode"
+			],
+			[
+				"box",
+				"box-shadow"
+			],
+			[
+				"inlin",
+				"inline-block"
+			],
+			[
+				"margin",
+				"margin-right"
+			],
+			[
+				"searc",
+				"search-form"
+			],
+			[
+				"text",
+				"text-align"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 380.0,
+		"selected_items":
+		[
+			[
+				"packa",
+				"Package Control: Install Package"
+			],
+			[
+				"emme",
+				"Toggle Comment"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"",
+				"Package Control: Install Package"
+			],
+			[
+				"zencoding",
+				"Set Syntax: ZenCoding"
+			],
+			[
+				"html",
+				"Set Syntax: HTML"
+			],
+			[
+				"shell",
+				"Set Syntax: Shell Script (Bash)"
+			],
+			[
+				"console",
+				"Set Syntax: R Console"
+			],
+			[
+				"Package Control:install",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 400.0
+	},
+	"console":
+	{
+		"height": 118.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/D/Documents/projets/web/wordpress/pixelkingdom_2014/html/wp-content/themes/pixelkingdom_2014/sidebar.php",
+		"/D/Documents/projets/web/wordpress/pixelkingdom_2014/html/wp-content/themes/pixelkingdom_2014/index.php",
+		"/D/Documents/projets/web/wordpress/pixelkingdom_2014/html/wp-content/themes/pixelkingdom_2014/loop-single.php",
+		"/D/Documents/projets/web/wordpress/pixelkingdom_2014/html/wp-content/themes/pixelkingdom_2014/jquery.fancybox.css",
+		"/D/Documents/projets/web/wordpress/pixelkingdom_2014/html/wp-content/themes/pixelkingdom_2014/scripts/scripts.js",
+		"/D/Documents/projets/web/wordpress/pixelkingdom_2014/html/wp-content/themes/pixelkingdom_2014/functions.php",
+		"/D/Documents/projets/web/wordpress/pixelkingdom_2014/html/wp-content/themes/pixelkingdom_2014/style.css",
+		"/D/Documents/projets/web/wordpress/pixelkingdom_2014/html/wp-content/plugins/pk-videogames/pk-videogames.php",
+		"/D/Documents/projets/web/wordpress/pixelkingdom_2014/html/wp-content/themes/pixelkingdom_2014/loop-single-bottom.php",
+		"/D/Documents/projets/web/wordpress/pixelkingdom_2014/html/.htaccess",
+		"/D/Documents/projets/web/wordpress/pixelkingdom_2014/html/wp-content/themes/pixelkingdom_2014/scripts/jquery.fancybox.pack.js",
+		"/D/Documents/projets/web/wordpress/pixelkingdom_2014/html/wp-content/themes/pixelkingdom_2014/header.php",
+		"/D/Documents/projets/web/wordpress/pixelkingdom_2014/html/wp-content/themes/pixelkingdom_2014/loop.php",
+		"/D/Documents/projets/web/wordpress/pixelkingdom_2014/html/wp-content/themes/pixelkingdom_2014/loop-home.php",
+		"/D/Documents/projets/web/wordpress/pixelkingdom_2014/html/wp-content/themes/pixelkingdom_2014/loop-featured.php",
+		"/D/Documents/projets/web/wordpress/pixelkingdom_2014/html/wp-content/themes/pixelkingdom_2014/README",
+		"/D/Documents/projets/web/wordpress/pixelkingdom_2014/html/wp-content/plugins/pk-comingsoon/pk-comingsoon.php",
+		"/D/Documents/projets/web/wordpress/pixelkingdom_2014/html/wp-content/plugins/wordpress-popular-posts/wordpress-popular-posts.php",
+		"/D/Documents/projets/web/wordpress/pixelkingdom_2014/html/wp-content/plugins/pk-videogames/pk-comingsoon.php",
+		"/D/Documents/projets/web/wordpress/pixelkingdom_2014/html/wp-content/plugins/pk-infinite-scroll/pk-infinite-scroll.php",
+		"/D/Documents/projets/web/wordpress/pixelkingdom_2014/html/wp-content/themes/pixelkingdom_2014/footer.php",
+		"/D/Documents/projets/web/wordpress/pixelkingdom_2014/html/wp-includes/theme-compat/sidebar.php",
+		"/D/Documents/projets/web/wordpress/pixelkingdom_2014/html/wp-content/themes/pixelkingdom_2014/shortcodes.php",
+		"/D/Documents/projets/web/wordpress/pixelkingdom_2014/html/wp-config.php",
+		"/D/Documents/projets/web/wordpress/pixelkingdom_2014/html/wp-content/themes/pixelkingdom_2014/loop-home - Copie (4).php",
+		"/C/Users/Vivien/AppData/Roaming/Sublime Text 2/Packages/User/Distraction Free.sublime-settings",
+		"/C/Users/Vivien/AppData/Roaming/Sublime Text 2/Packages/User/CSS.sublime-settings",
+		"/D/Documents/projets_web/pixelkingdom_2014/html/.htaccess",
+		"/D/Documents/projets_web/pixelkingdom_2014/html/wp-content/themes/pixelkingdom_2014/scripts/scripts.js",
+		"/D/Documents/projets_web/pixelkingdom_2014/html/wp-content/plugins/pk-infinite-scroll/pk-infinite-scroll.js",
+		"/D/Documents/projets_web/pixelkingdom_2014/html/wp-content/plugins/pk-infinite-scroll/pk-infinite-scroll.php",
+		"/D/Documents/projets_web/pixelkingdom_2014/html/wp-content/themes/pixelkingdom_2014/README",
+		"/D/Documents/projets_web/pixelkingdom_2014/html/wp-content/plugins/pk-infinite-scroll/readme.txt",
+		"/D/Documents/projets_web/pixelkingdom_2014/html/wp-content/themes/pixelkingdom_2014/functions.php",
+		"/D/Documents/projets_web/pixelkingdom_2014/html/wp-content/themes/pixelkingdom_2014/loop-featured.php",
+		"/D/Documents/projets_web/pixelkingdom_2014/html/wp-content/themes/pixelkingdom_2014/style.css",
+		"/D/Documents/projets_web/pixelkingdom_2014/html/wp-content/themes/pixelkingdom_2014/loop.php",
+		"/D/Documents/projets_web/pixelkingdom_2012/www/wp-content/themes/midas3/infobox.php",
+		"/D/Documents/projets_web/pixelkingdom_2014/html/wp-content/themes/pixelkingdom_2014/index.php",
+		"/D/Documents/projets_web/pixelkingdom_2014/html/wp-content/plugins/pk-infinite-scroll/test.html",
+		"/D/Documents/projets_web/pixelkingdom_2012/www/wp-content/themes/midas3/scripts/scripts.js",
+		"/D/Documents/projets_web/pixelkingdom_2014/html/wp-content/plugins/pk-infinite-scroll/pk-infinite-scroll.css",
+		"/D/Documents/projets_web/pixelkingdom_2014/html/wp-content/languages/themes/twentyfourteen-fr_FR.po",
+		"/D/Documents/projets_web/pixelkingdom_2014/html/wp-content/languages/themes/twentyfourteen-fr_FR.mo",
+		"/D/Documents/projets_web/pixelkingdom_2014/html/wp-content/languages/fr_FR.mo",
+		"/D/Documents/projets_web/pixelkingdom_2014/html/wp-content/languages/fr_FR.po",
+		"/D/Documents/projets_web/pixelkingdom_2014/html/wp-content/themes/pixelkingdom_2014/404.php",
+		"/D/Documents/projets_web/pixelkingdom_2014/html/wp-includes/general-template.php",
+		"/D/Documents/projets_web/pixelkingdom_2014/html/wp-content/themes/pixelkingdom_2014/loop-more.php",
+		"/D/Documents/projets_web/pixelkingdom_2014/html/wp-content/themes/pixelkingdom_2014/loop-single.php",
+		"/D/Documents/projets_web/pixelkingdom_2014/html/wp-content/themes/pixelkingdom_2014/header.php",
+		"/D/Documents/projets_web/pixelkingdom_2012/www/wp-content/themes/midas3/loop.php",
+		"/D/Documents/projets_web/pixelkingdom_2012/www/wp-content/themes/midas3/single.php",
+		"/D/Documents/projets_web/pixelkingdom_2012/www/wp-content/themes/midas3/index.php",
+		"/D/Documents/projets_web/pixelkingdom_2014/html/wp-content/themes/pixelkingdom_2014/shortcodes.php",
+		"/D/Documents/projets_web/pixelkingdom_2012/www/wp-content/plugins/wp-pagenavi/wp-pagenavi.php",
+		"/D/Documents/projets_web/pixelkingdom_2014/html/wp-content/plugins/pk-infinite-scroll/pk-infinite-scroll.html",
+		"/D/Documents/projets_web/pixelkingdom_2012/www/wp-content/plugins/wp-pagenavi/core.php",
+		"/D/Documents/projets_web/pixelkingdom_2012/www/wp-content/themes/pixelkingdom/index.php",
+		"/D/Documents/projets_web/pixelkingdom_2012/www/wp-content/themes/midas3/style.css",
+		"/D/Documents/projets_web/pixelkingdom_2014/html/wp-content/themes/pixelkingdom_2014/sidebar.php",
+		"/D/Documents/projets_web/pixelkingdom_2014/html/wp-content/themes/pixelkingdom_2014/footer.php",
+		"/D/Documents/projets_web/pixelkingdom_2014/html/wp-content/themes/twentyfourteen/index.php",
+		"/D/Documents/projets_web/pixelkingdom_2014/html/wp-content/plugins/wordpress-popular-posts/wordpress-popular-posts.php",
+		"/D/Documents/projets_web/pixelkingdom_2014/html/wp-includes/theme-compat/header.php",
+		"/D/Documents/projets_web/pixelkingdom_2014/html/wp-content/plugins/wordpress-popular-posts/readme.txt",
+		"/D/Documents/projets_web/pixelkingdom_2014/html/wp-config.php",
+		"/D/Documents/projets_web/pixelkingdom_2012/www/wp-content/themes/midas3/functions.php",
+		"/D/Documents/projets_web/pixelkingdom_2012/www/wp-content/themes/midas3/footer.php",
+		"/C/Users/Vivien/AppData/Roaming/Sublime Text 2/Packages/User/Default (Windows).sublime-keymap",
+		"/C/Users/Vivien/AppData/Roaming/Sublime Text 2/Packages/Default/Default (Windows).sublime-keymap",
+		"/E/wamp/www/tests/getcontents/index.php",
+		"/C/Users/Vivien/Desktop/noel.html",
+		"/D/Documents/projets_web/pixelkingdom_2012/www/static/ludum-dare-25/index.php",
+		"/D/Documents/projets_web/stop_http.bat",
+		"/C/Users/Vivien/Desktop/noel_laetitia",
+		"/D/Documents/projets_web/recettes/config",
+		"/D/Documents/projets_web/recettes/recette.php",
+		"/D/Images/pixelkingdom/deadendthrills/maintenance.html",
+		"/D/Images/pixelkingdom/deadendthrills/maintenance/index.html",
+		"/D/Images/pixelkingdom/deadendthrills/maintenance/.htaccess",
+		"/E/wamp/www/wordpress/midas3/wp-content/themes/midas3/functions.php",
+		"/E/wamp/www/wordpress/midas3/wp-content/themes/midas3/style.css",
+		"/E/wamp/www/wordpress/midas3/wp-content/themes/midas3/ie.css",
+		"/E/wamp/www/wordpress/midas3/wp-content/themes/midas3/header.php",
+		"/E/wamp/www/wordpress/midas3/wp-content/themes/midas3/page.php",
+		"/E/wamp/www/wordpress/midas3/wp-content/themes/midas3/scripts/scripts.js",
+		"/E/wamp/www/wordpress/midas3/wp-content/themes/midas3/loop.php",
+		"/D/Images/pixelkingdom/deadendthrills/maintenance",
+		"/E/wamp/www/wordpress/midas3/wp-content/themes/midas3/infobox.php",
+		"/E/wamp/www/wordpress/midas3/wp-content/themes/midas3/single.php",
+		"/E/wamp/www/wordpress/midas3/wp-content/themes/midas3/404.php",
+		"/E/wamp/www/wordpress/midas3/wp-content/themes/midas3/archive.php",
+		"/E/wamp/www/wordpress/midas3/wp-content/themes/midas3/index.php",
+		"/E/wamp/www/wordpress/midas3/wp-content/themes/midas3/nav.php",
+		"/E/wamp/www/wordpress/midas3/wp-content/themes/midas3/search.php",
+		"/E/wamp/www/wordpress/midas3/wp-content/themes/midas3/scripts/pk-responsive-menu.js"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"pk_videogame_date",
+			"date",
+			"sidebar",
+			"informations",
+			"h2",
+			"widget",
+			"widget-title",
+			"-title",
+			"game_genre",
+			"get_the_terms",
+			"game_genre",
+			"rewind_posts",
+			"the_post",
+			"thumb-col",
+			"get_the_terms",
+			"game_platform",
+			"pk_custom_post_videogame_taxonomies",
+			"plat",
+			"plate",
+			"plate-forme",
+			"game_platform",
+			"_x",
+			"game",
+			"meta",
+			"url('",
+			"url(",
+			".clear",
+			"pk_videogame_date_box_content",
+			"pk_videogame_date_box_save",
+			"pk_test_box_save",
+			"pk_videogame_date",
+			"date",
+			"platfo",
+			"img",
+			"array_merge_recursive_distinct",
+			"form",
+			"filter",
+			"youtube",
+			".loop-featured-posts",
+			"-30px",
+			"30px",
+			"add_action",
+			"wpp_get_most",
+			"wpp_get",
+			"wpp_",
+			"$cat",
+			"$ca",
+			"get_popular_posts",
+			"function get_popular_posts",
+			"get_popular_posts",
+			"$cat",
+			"wpp_shortcode",
+			"var_",
+			"wpp_shortcode",
+			"shortcode",
+			"wpp_shortcode",
+			"shortcode",
+			"do_shortcode",
+			"wpp_get_mostpopular",
+			"cat",
+			"wp_query",
+			"query",
+			"pixel",
+			"pk",
+			"home-feature",
+			"loop-feat",
+			"post--comment",
+			"post-comment",
+			"home-featured-posts",
+			".home-featured-posts",
+			"pkAddPostsFilters",
+			"pkAddPostsFilters ",
+			"main-col--search",
+			"post-main",
+			"wrapper",
+			"home--loop-main",
+			"clearfix",
+			"pk_infinite_scroll_button",
+			"scrollLoadTimeout",
+			"scrollLoadDelay",
+			"getConfig",
+			"loadWithScroll",
+			"no post",
+			"no more",
+			"post",
+			"no more",
+			"get_next_posts_page_link",
+			"min-w",
+			"width",
+			"min-width",
+			"860",
+			"img_only",
+			"img_url",
+			"Modif pixel",
+			"format_content",
+			"$data['img']",
+			"die",
+			"sorry",
+			"ctrl+d",
+			";}\n",
+			";\n",
+			"\n		",
+			"', ",
+			"';\n",
+			"main-section",
+			"\"<?php bloginfo(\"stylesheet_directory\"); ?>",
+			"<?php bloginfo('stylesheet_directory'); ?>",
+			"ok",
+			"nodeValue",
+			"background",
+			"!\">",
+			"p",
+			"date-box",
+			" <?",
+			"aligncenter",
+			"href",
+			"dd",
+			"overflow",
+			"dl",
+			";}",
+			".date",
+			";}",
+			"margin",
+			"a",
+			"s",
+			"\"]{",
+			"text-shadow:1px 1px",
+			"font-family: 'PT Sans', Arial, Helvetica, \"Liberation Sans\", FreeSans, sans-serif;"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"url('img/",
+			".loop-featured",
+			"loop-featured-posts",
+			".loop-featured-posts",
+			"get_config",
+			"\"http://pixelkingdom.fr/wp-content/themes/midas3",
+			"http://pixelkingdom.fr/wp-content/themes/midas3",
+			"http://pixelkingdom.fr/wp-content/themes/midas3/",
+			"http://pixelkingdom.fr/wp-content/themes/pixelkingdom/",
+			"choix",
+			".date-box",
+			""
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 30.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 62.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"single",
+				"wp-content/themes/pixelkingdom_2014/loop-single.php"
+			],
+			[
+				"fancybox.css",
+				"wp-content/themes/pixelkingdom_2014/jquery.fancybox.css"
+			],
+			[
+				"fancybox.pack",
+				"wp-content/themes/pixelkingdom_2014/scripts/jquery.fancybox.pack.js"
+			],
+			[
+				"scripts.js",
+				"wp-content/themes/pixelkingdom_2014/scripts/scripts.js"
+			],
+			[
+				"header",
+				"wp-content/themes/pixelkingdom_2014/header.php"
+			],
+			[
+				"single-bottom",
+				"wp-content/themes/pixelkingdom_2014/loop-single-bottom.php"
+			],
+			[
+				"loop",
+				"wp-content/themes/pixelkingdom_2014/loop.php"
+			],
+			[
+				"loop-",
+				"wp-content/themes/pixelkingdom_2014/loop-home.php"
+			],
+			[
+				"style",
+				"wp-content/themes/pixelkingdom_2014/style.css"
+			],
+			[
+				"videogame",
+				"wp-content/plugins/pk-videogames/pk-videogames.php"
+			],
+			[
+				"loop-single",
+				"wp-content/themes/pixelkingdom_2014/loop-single.php"
+			],
+			[
+				"index",
+				"wp-content/themes/pixelkingdom_2014/index.php"
+			],
+			[
+				"functions",
+				"wp-content/themes/pixelkingdom_2014/functions.php"
+			],
+			[
+				"function",
+				"wp-content/themes/pixelkingdom_2014/functions.php"
+			],
+			[
+				"sidebar",
+				"wp-content/themes/pixelkingdom_2014/sidebar.php"
+			],
+			[
+				"readme",
+				"wp-content/themes/pixelkingdom_2014/README"
+			],
+			[
+				"wp-config",
+				"wp-config.php"
+			],
+			[
+				"scripts",
+				"scripts/scripts.js"
+			],
+			[
+				"script",
+				"wp-content/themes/pixelkingdom_2014/scripts/scripts.js"
+			],
+			[
+				"style.css",
+				"wp-content/themes/pixelkingdom_2014/style.css"
+			],
+			[
+				"infinite",
+				"wp-content/plugins/pk-infinite-scroll/readme.txt"
+			],
+			[
+				"htaccess",
+				".htaccess"
+			],
+			[
+				"index.",
+				"wp-content/themes/pixelkingdom_2014/index.php"
+			],
+			[
+				"general-templ",
+				"wp-includes/general-template.php"
+			],
+			[
+				"pk-infinite",
+				"wp-content/plugins/pk-infinite-scroll/pk-infinite-scroll.html"
+			],
+			[
+				"shortcodes",
+				"wp-content/themes/pixelkingdom_2014/shortcodes.php"
+			],
+			[
+				"footer",
+				"wp-content/themes/pixelkingdom_2014/footer.php"
+			],
+			[
+				"header.php",
+				"wp-content/themes/pixelkingdom_2014/header.php"
+			],
+			[
+				"script.js",
+				"wp-content/themes/pixelkingdom_2014/scripts/scripts.js"
+			],
+			[
+				"wpp",
+				"wp-content/plugins/wordpress-popular-posts/wordpress-popular-posts.php"
+			],
+			[
+				"htacc",
+				".htaccess"
+			],
+			[
+				"htacces",
+				".htaccess"
+			],
+			[
+				"config",
+				"wp-config.php"
+			],
+			[
+				"funtion",
+				"functions.php"
+			],
+			[
+				"sty",
+				"style.css"
+			],
+			[
+				"js",
+				"scripts/pk-responsive-menu.js"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 603.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 202.0,
+	"status_bar_visible": true
+}
