@@ -4,7 +4,7 @@
 
 Kiss Slider is intended to be a flexible, responsive, yet simple jquery slideshow.
 
-## Example
+## Examples
 [See examples here](http://home.vivienleneez.fr/web/jquery.kiss-slider/demo/)
 
 ## Quick Start
