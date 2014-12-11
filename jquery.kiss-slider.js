@@ -1,3 +1,8 @@
+/*
+	JQuery KissSlider plugin
+	v1.0
+	https://github.com/VivienLN/jquery.kiss-slider
+*/
 (function ($) {
 	$.fn.kissSlider = function(options) {
 		// settings
