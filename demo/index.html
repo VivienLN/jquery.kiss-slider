@@ -10,33 +10,42 @@
 		<style type="text/css">
 			*{padding:0;margin:0;}
 			ul {list-style-type:none;}
+			body{background:#eee;}
+				.container {max-width:900px; width:auto; padding:20px; border:1px solid #ddd; background:#fff; box-shadow:0 0 4px #ddd; margin:40px auto;}
+					#kiss-slider{}
+						#kiss-slider li img{width: 100%;}
 		</style>
 	</head>
 	<body>
-		<ul id="kiss-slider">
-			<li><img src="img/slide01.jpg" /></li>
-			<li><img src="img/slide02.jpg" /></li>
-			<li><img src="img/slide03.jpg" /></li>
-			<li><img src="img/slide04.jpg" /></li>
-			<li><img src="img/slide05.jpg" /></li>
-			<li><img src="img/slide06.jpg" /></li>
-		</ul>
-		<a href="#" class="previous">previous</a>
-		<a href="#" class="next">next</a>
-		<p>This is the basic usage of the plugin.</p>
-		<p>images used:</p>
-		<ul>
-			<li><a href="http://j3concepts.deviantart.com/art/Time-Travel-in-a-Time-of-Regret-319922355">http://j3concepts.deviantart.com/art/Time-Travel-in-a-Time-of-Regret-319922355</a></li>
-			<li><a href="http://88grzes.deviantart.com/art/Swamp-Ambush-2-453265331">http://88grzes.deviantart.com/art/Swamp-Ambush-2-453265331</a></li>
-		</ul>
+		<div class="container">
+			<ul id="kiss-slider">
+				<li><img src="img/slide01.jpg" /></li>
+				<li><img src="img/slide02.jpg" /></li>
+				<li><img src="img/slide03.jpg" /></li>
+				<li><img src="img/slide04.jpg" /></li>
+				<li><img src="img/slide05.jpg" /></li>
+				<li><img src="img/slide06.jpg" /></li>
+			</ul>
+			<ul id="kiss-pagiantion"></ul>
+			<a href="#" class="previous">previous</a>
+			<a href="#" class="next">next</a>
+			<p>This is the basic usage of the plugin.</p>
+			<p>images used:</p>
+			<ul>
+				<li><a href="http://j3concepts.deviantart.com/art/Time-Travel-in-a-Time-of-Regret-319922355">http://j3concepts.deviantart.com/art/Time-Travel-in-a-Time-of-Regret-319922355</a></li>
+				<li><a href="http://88grzes.deviantart.com/art/Swamp-Ambush-2-453265331">http://88grzes.deviantart.com/art/Swamp-Ambush-2-453265331</a></li>
+			</ul>
+		</div>
+
 		<script type="text/Javascript">
 			(function($) {
 				$(window).load(function() {
 					$('#kiss-slider').kissSlider({
 						// slideWidth: 900,
-						easing: 'linear',
 						prevSelector: '.previous',
 						nextSelector: '.next',
+						paginationSelector: '#kiss-pagiantion',
+						startIndex:3,
 						// beforeSlide: function() {console.log('before');},
 						// afterSlide: function() {console.log('after');},
 						// noAnim: true

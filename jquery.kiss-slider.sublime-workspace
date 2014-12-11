@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"appl",
+				"applyCallback"
+			],
+			[
 				"devel",
 				"developpeur"
 			],
@@ -87,11 +91,35 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "demo/index.html",
+			"settings":
+			{
+				"buffer_size": 1669,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "jquery.kiss-slider.js",
+			"settings":
+			{
+				"buffer_size": 3624,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "README.md",
+			"settings":
+			{
+				"buffer_size": 1315,
+				"line_ending": "Windows"
+			}
+		}
 	],
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 380.0,
+		"height": 392.0,
 		"selected_items":
 		[
 			[
@@ -148,6 +176,8 @@
 	},
 	"file_history":
 	[
+		"/D/Documents/projets/web/jquery.kiss-slider/demo/index.html",
+		"/C/Users/Vivien/AppData/Roaming/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
 		"/D/Documents/projets/web/wordpress/pixelkingdom_2014/html/wp-content/themes/pixelkingdom_2014/sidebar.php",
 		"/D/Documents/projets/web/wordpress/pixelkingdom_2014/html/wp-content/themes/pixelkingdom_2014/index.php",
 		"/D/Documents/projets/web/wordpress/pixelkingdom_2014/html/wp-content/themes/pixelkingdom_2014/loop-single.php",
@@ -262,6 +292,10 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"settings",
+			"ident",
+			"idnent",
+			"html",
 			"pk_videogame_date",
 			"date",
 			"sidebar",
@@ -385,11 +419,7 @@
 			".date",
 			";}",
 			"margin",
-			"a",
-			"s",
-			"\"]{",
-			"text-shadow:1px 1px",
-			"font-family: 'PT Sans', Arial, Helvetica, \"Liberation Sans\", FreeSans, sans-serif;"
+			"a"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -397,6 +427,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"s",
 			"url('img/",
 			".loop-featured",
 			"loop-featured-posts",
@@ -419,8 +450,88 @@
 	"groups":
 	[
 		{
+			"selected": 2,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "demo/index.html",
+					"settings":
+					{
+						"buffer_size": 1669,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1652,
+								1276
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 45.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "jquery.kiss-slider.js",
+					"settings":
+					{
+						"buffer_size": 3624,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1661,
+								1528
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 270.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "README.md",
+					"settings":
+					{
+						"buffer_size": 1315,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								127,
+								127
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Markdown/Markdown.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -624,6 +735,6 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 202.0,
+	"side_bar_width": 234.0,
 	"status_bar_visible": true
 }
