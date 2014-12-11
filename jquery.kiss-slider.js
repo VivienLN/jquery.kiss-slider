@@ -13,6 +13,7 @@
 			paginationSelector: null, 	// container where pagination liks are generated
 			paginationBefore: '',		// '<li>'
 			paginationAfter: '',		// '</li>'
+			paginationCurrentClass: 'current', //
 			startIndex: 0,
 			startingZ: 1,			// z-index for the slides. Usefull if the slider have to display on top of other things
 			slideDuration: 400,
@@ -69,7 +70,8 @@
 		}
 
 		// show first slide
-		moveTo((s.startIndex < $slides.length ? s.startIndex : 0), true);
+		_currentIndex = s.startIndex < $slides.length ? s.startIndex : 0;
+		$slides.hide().eq(_currentIndex).show();
 
 		// callback init
 		applyCallback(s.init);
@@ -85,10 +87,10 @@
 
 		// functions
 		// @param int index index of the slide to reach
-		// @param bool noAnim whether or not to skip the animation
 		// @param int dir 1 or -1 (respectively slide to the right and to the left)
+		// @param bool noAnim whether or not to skip the animation
 		// --------------------------------------
-		function moveTo(index, noAnim, dir) {
+		function moveTo(index, dir, noAnim) {
 			if(_animated || index == _currentIndex) {
 				return false;
 			}
@@ -99,7 +101,7 @@
 
 
 			var $target = $slides.eq(index);
-			var $current = _currentIndex !== null ? $slides.eq(_currentIndex) : null;
+			var $current = $slides.eq(_currentIndex);
 
 			applyCallback(s.beforeSlide, [_currentIndex, index]);
 
@@ -115,15 +117,19 @@
 				var targetLeftFrom = _slideWidth * dir;
 				var distance = -_slideWidth * dir;
 				$target.css('left', targetLeftFrom).add($current).animate({left:'+=' + distance}, s.slideDuration, s.easing, function() {
-					if(!_animated) {
-						return;
-					}
-					applyCallback(s.afterSlide, [_currentIndex, index]);
-					_currentIndex = index;
-					_animated = false;
+					finishSlide(index);
 				});
 			}
 			return false;
+		}
+
+		function finishSlide(newIndex) {
+			if(!_animated) {
+				return;
+			}
+			applyCallback(s.afterSlide, [_currentIndex, newIndex]);
+			_currentIndex = newIndex;
+			_animated = false;
 		}
 
 		function paginationClick() {
@@ -132,19 +138,17 @@
 				return false;
 			}
 			var dir = index > _currentIndex ? 1 : -1;
-			return moveTo(index, false, dir);
+			return moveTo(index, dir);
 		}
-
-
 
 		function nextSlide() {
 			var target = _currentIndex + 1 < $slides.length ? _currentIndex + 1 : 0;
-			return moveTo(target, false, 1);
+			return moveTo(target, 1);
 		}
 
 		function prevSlide() {
 			var target = _currentIndex - 1 >= 0 ? _currentIndex - 1 : $slides.length - 1;
-			return moveTo(target, false, -1);
+			return moveTo(target, -1);
 		}
 
 		function applyCallback(fn, args) {

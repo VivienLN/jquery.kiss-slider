@@ -6,11 +6,13 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta http-equiv="Content-Language" content="en">
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-		<script src="../jquery.kiss-slider.js"></script>
+		<script src="../jquery.kiss-slider.min.js"></script>
+		<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css">
+		<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
 		<style type="text/css">
 			*{padding:0;margin:0;}
 			ul {list-style-type:none;}
-			body{background:#eee;}
+			body{background:#eee; font-family:sans-serif; color:#222;}
 				.container {max-width:900px; width:auto; padding:20px; border:1px solid #ddd; background:#fff; box-shadow:0 0 4px #ddd; margin:40px auto;}
 					#kiss-slider{}
 						#kiss-slider li img{width: 100%;}
@@ -18,18 +20,57 @@
 	</head>
 	<body>
 		<div class="container">
-			<ul id="kiss-slider">
-				<li><img src="img/slide01.jpg" /></li>
-				<li><img src="img/slide02.jpg" /></li>
-				<li><img src="img/slide03.jpg" /></li>
-				<li><img src="img/slide04.jpg" /></li>
-				<li><img src="img/slide05.jpg" /></li>
-				<li><img src="img/slide06.jpg" /></li>
-			</ul>
-			<ul id="kiss-pagiantion"></ul>
-			<a href="#" class="previous">previous</a>
-			<a href="#" class="next">next</a>
-			<p>This is the basic usage of the plugin.</p>
+			<div>
+				<h2>Example 1 : basic usage</h2>
+				<ul id="kiss-slider">
+					<li><img src="img/slide01.jpg" /></li>
+					<li><img src="img/slide02.jpg" /></li>
+					<li><img src="img/slide03.jpg" /></li>
+					<li><img src="img/slide04.jpg" /></li>
+					<li><img src="img/slide05.jpg" /></li>
+					<li><img src="img/slide06.jpg" /></li>
+				</ul>
+				<ul id="kiss-pagiantion"></ul>
+				<a href="#" class="previous">previous</a>
+				<a href="#" class="next">next</a>
+				<p>This is the basic usage of the plugin.</p>
+
+				<h3>HTML: </h3>
+				<pre><code class="html">
+<?php echo htmlentities('<ul id="kiss-slider">
+	<li><img src="img/slide01.jpg" /></li>
+	<li><img src="img/slide02.jpg" /></li>
+	<li><img src="img/slide03.jpg" /></li>
+	<li><img src="img/slide04.jpg" /></li>
+	<li><img src="img/slide05.jpg" /></li>
+	<li><img src="img/slide06.jpg" /></li>
+</ul>
+<ul id="kiss-pagiantion"></ul>
+<a href="#" class="previous">previous</a>
+<a href="#" class="next">next</a>'); ?>
+				</code></pre>
+				<h3>JS: </h3>
+				<pre><code class="js">
+(function($) {
+	$(window).load(function() {
+		$('#kiss-slider').kissSlider({
+			// slideWidth: 900,
+			prevSelector: '.previous',
+			nextSelector: '.next',
+			paginationSelector: '#kiss-pagiantion',
+			startIndex:3,
+			// beforeSlide: function() {console.log('before');},
+			// afterSlide: function() {console.log('after');},
+			// noAnim: true
+		});
+	});
+})(jQuery);
+				</code></pre>
+
+			</div>
+
+
+
 			<p>images used:</p>
 			<ul>
 				<li><a href="http://j3concepts.deviantart.com/art/Time-Travel-in-a-Time-of-Regret-319922355">http://j3concepts.deviantart.com/art/Time-Travel-in-a-Time-of-Regret-319922355</a></li>
@@ -38,6 +79,7 @@
 		</div>
 
 		<script type="text/Javascript">
+			hljs.initHighlightingOnLoad();
 			(function($) {
 				$(window).load(function() {
 					$('#kiss-slider').kissSlider({
