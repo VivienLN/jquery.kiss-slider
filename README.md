@@ -49,10 +49,10 @@ Selector for the "previous" link(s)
 ### paginationSelector (string, default: null) 	
 Selector in which append the pagination links. It is advised to target a <ul> element (otherwise you must change the paginationBefore and paginationAfter parameters).
 
-### paginationBefore (string, default: '<li>')
+### paginationBefore (string, default: '&lt;li&gt;')
 What to display before each pagination link. Change it especially if paginationSelector is not a <ul> element.
 
-### paginationAfter (string, default: '</li>')
+### paginationAfter (string, default: '&lt;/li&gt;')
 What to display before each pagination link. Change it especially if paginationSelector is not a <ul> element.
 
 ### startIndex (int, default: 0)
