@@ -18,6 +18,7 @@
 			startingZ: 1,			// z-index for the slides. Usefull if the slider have to display on top of other things
 			slideDuration: 400,
 			easing: 'swing',
+			autoscrollDelay: 0,
 			noAnim: false,			// Do not animate the slider
 			beforeSlide: null,		// callback parameters : oldIndex, newIndex.
 			afterSlide: null,		// callback parameters : oldIndex, newIndex.
@@ -34,6 +35,7 @@
 		var _animated = false;
 		var _slideWidth;
 		var _slideHeight;
+		var _autoscrollInterval;
 
 		$slides.css({
 			position: 'absolute',
@@ -59,6 +61,16 @@
 			}
 			$('a', s.paginationSelector).click(paginationClick);
 		}
+		// autoscroll (pause when mouse over)
+		if(s.autoscrollDelay) {
+			startAutoScroll(s.autoscrollDelay);
+			$container.mouseenter(function(){
+				stopAutoScroll();
+			});
+			$container.mouseleave(function(){
+				startAutoScroll(s.autoscrollDelay);
+			});
+		}
 		// resize event
 		$(window).resize(resizeSlider);
 		// prev/next events
@@ -83,6 +95,19 @@
 				_slideHeight = Math.max(_slideHeight, $(this).outerHeight(true));
 			});
 			$container.css('height', _slideHeight);
+		}
+
+		function startAutoScroll(delay) {
+			if(!_autoscrollInterval) {
+				_autoscrollInterval = setInterval(function() {
+					nextSlide();
+				}, delay);
+			}
+		}
+
+		function stopAutoScroll() {
+			clearInterval(_autoscrollInterval);
+			_autoscrollInterval = null;
 		}
 
 		// functions
