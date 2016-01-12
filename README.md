@@ -52,7 +52,7 @@ Note: Calling the plugin on `window.load()` allows to properly calculate the sli
 
 	Selector for the "previous" link(s). It is up to you to add it/them to HTML.
 
-* `paginationSelector (string, default: null)` 	
+* `paginationSelector (string, default: null)`
 
 	Selector in which append the pagination links. It is advised to target a `<ul>` element (otherwise you must change the `paginationBefore` and `paginationAfter` parameters).
 	It is up to you to add it to HTML.
@@ -64,6 +64,10 @@ Note: Calling the plugin on `window.load()` allows to properly calculate the sli
 * `paginationAfter (string, default: '</li>')`
 
 	What to display before each pagination link. Change it especially if `paginationSelector` is not a `<ul>` element.
+
+* `autoscrollDelay (int, default: 0)`
+
+	Delay for automatic scrolling; set to 0 (default)to disable autoscroll.
 
 * `startIndex (int, default: 0)`
 
@@ -86,14 +90,14 @@ Note: Calling the plugin on `window.load()` allows to properly calculate the sli
 	false to not animate the slider.
 
 * `beforeSlide (Function, default: null)`
-	
+
 	Callback. Called each time a sliding animation starts.
 	Parameters:
 	* `oldIndex`: Index of the slide about to be moved away
 	* `newIndex`: Index of the target slide
 
-* `afterSlide (Function, default: null)`	
-	
+* `afterSlide (Function, default: null)`
+
 	Callback. Called each time a sliding animation is complete.
 	Parameters:
 	* `oldIndex`: Index of the slide just moved away
