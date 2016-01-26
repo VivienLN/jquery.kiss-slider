@@ -58,9 +58,9 @@
 		// pagination
 		if(s.paginationSelector) {
 			for(var i = 0; i < $slides.length; i++) {
-				$(s.paginationBefore + '<a href="#">' + (i+1) + '</a>' + s.paginationAfter).appendTo(s.paginationSelector).data('kissSliderTarget', i);
+				$(s.paginationBefore + '<button href="#">' + (i+1) + '</button>' + s.paginationAfter).appendTo(s.paginationSelector).data('kissSliderTarget', i);
 			}
-			$('a', s.paginationSelector).click(paginationClick);
+			$('button', s.paginationSelector).click(paginationClick);
 		}
 		// autoscroll (pause when mouse over)
 		if(s.autoscrollDelay) {
