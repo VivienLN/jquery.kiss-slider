@@ -4,9 +4,6 @@
 
 Kiss Slider is intended to be a flexible, responsive, yet simple jquery slideshow.
 
-## Examples
-[See examples here](http://home.vivienleneez.fr/web/jquery.kiss-slider/demo/)
-
 ## Quick Start
 
 ### HTML
@@ -23,7 +20,8 @@ Kiss Slider is intended to be a flexible, responsive, yet simple jquery slidesho
 
 ### CSS
 
-Just define a width (fixed, fluid, responsive) for the container. The plugin will do the rest.
+Just define a width (fixed, fluid, responsive) for the container (here, `#kiss-slider`). The plugin will do the rest.
+It is best to set a `overflow:hidden` rule on the container to prevent ["FOUC"](https://en.wikipedia.org/wiki/Flash_of_unstyled_content)
 
 ### Javascript
 
