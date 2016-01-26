@@ -23,7 +23,7 @@
 			beforeSlide: null,		// callback parameters : oldIndex, newIndex.
 			afterSlide: null,		// callback parameters : oldIndex, newIndex.
 			init: null,				// calls when the slider is ready
-			allowSwipe: true		// @since 1.1
+			allowSwipe: true		// @since 1.1 Allow swipe on touch-enabled devices
 		};
 		var s = $.extend({}, defaults, options);
 
@@ -92,32 +92,8 @@
 			var startY;
 			var startTime;
 			$slides.each(function(){
-				// touch start
-				this.addEventListener('touchstart', function(e){
-					startX = e.changedTouches[0].pageX;
-					startY = e.changedTouches[0].pageY;
-					startTime = new Date().getTime();
-				}, false);
-				// touch end
-				this.addEventListener('touchend', function(e){
-					var duration = new Date().getTime() - startTime;
-					var dir = null;
-					if(duration <= maxDuration) {
-						var distX = e.changedTouches[0].pageX - startX;
-						var distY = e.changedTouches[0].pageY - startY;
-						var distXAbs = Math.abs(distX);
-						var distYAbs = Math.abs(distY);
-						if(distXAbs > minDist && distYAbs <= distXAbs*maxDeviation/100) {
-							if(distX < 0) {
-								nextSlide();
-							} else {
-								prevSlide();
-							}
-						} /*else if(distYAbs > minDist && distXAbs <= distYAbs*maxDeviation/100) {
-							dir = distY > 0 ? 'down' : 'up';
-						}*/
-					}
-				});
+				this.addEventListener('touchstart', touchStartEvent, false);
+				this.addEventListener('touchend', touchEndEvent);
 			});
 		}
 
@@ -218,6 +194,41 @@
 
 		function applyCallback(fn, args) {
 			return typeof(fn) === 'function' ? fn.apply(this, args) : null;
+		}
+
+		function touchStartEvent(e) {
+			console.log('touchstart');
+			console.log(e);
+			// e.preventDefault();
+			// startX = e.pageX ? e.pageX : e.changedTouches[0].pageX;
+			// startY = e.pageY ? e.pageY : e.changedTouches[0].pageY;
+			startX = e.changedTouches[0].pageX;
+			startY = e.changedTouches[0].pageY;
+			startTime = new Date().getTime();
+		}
+
+		function touchEndEvent(e) {
+			console.log('touchend');
+			// e.preventDefault();
+			var duration = new Date().getTime() - startTime;
+			var dir = null;
+			if(duration <= maxDuration) {
+				// var distX = (e.pageX ? e.pageX : e.changedTouches[0].pageX) - startX;
+				// var distY = (e.pageY ? e.pageY : e.changedTouches[0].pageY) - startY;
+				var distX = e.changedTouches[0].pageX - startX;
+				var distY = e.changedTouches[0].pageY - startY;
+				var distXAbs = Math.abs(distX);
+				var distYAbs = Math.abs(distY);
+				if(distXAbs > minDist && distYAbs <= distXAbs*maxDeviation/100) {
+					if(distX < 0) {
+						nextSlide();
+					} else {
+						prevSlide();
+					}
+				} /*else if(distYAbs > minDist && distXAbs <= distYAbs*maxDeviation/100) {
+					dir = distY > 0 ? 'down' : 'up';
+				}*/
+			}
 		}
 
 		// return element for chaining
