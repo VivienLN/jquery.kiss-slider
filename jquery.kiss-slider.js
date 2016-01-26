@@ -23,6 +23,7 @@
 			beforeSlide: null,		// callback parameters : oldIndex, newIndex.
 			afterSlide: null,		// callback parameters : oldIndex, newIndex.
 			init: null,				// calls when the slider is ready
+			allowSwipe: true		// @since 1.1
 		};
 		var s = $.extend({}, defaults, options);
 
@@ -73,12 +74,51 @@
 		}
 		// resize event
 		$(window).resize(resizeSlider);
+
 		// prev/next events
 		if(s.nextSelector) {
 			$(s.nextSelector).click(nextSlide);
 		}
 		if(s.prevSelector) {
 			$(s.prevSelector).click(prevSlide);
+		}
+
+		// swipe events
+		if(s.allowSwipe) {
+			var maxDuration = 1000;
+			var minDist = 100; // px
+			var maxDeviation = 50; // % of distance in an axe ; max distance in the other axis (ex if horiz swipe, max vertical distance)
+			var startX;
+			var startY;
+			var startTime;
+			$slides.each(function(){
+				// touch start
+				this.addEventListener('touchstart', function(e){
+					startX = e.changedTouches[0].pageX;
+					startY = e.changedTouches[0].pageY;
+					startTime = new Date().getTime();
+				}, false);
+				// touch end
+				this.addEventListener('touchend', function(e){
+					var duration = new Date().getTime() - startTime;
+					var dir = null;
+					if(duration <= maxDuration) {
+						var distX = e.changedTouches[0].pageX - startX;
+						var distY = e.changedTouches[0].pageY - startY;
+						var distXAbs = Math.abs(distX);
+						var distYAbs = Math.abs(distY);
+						if(distXAbs > minDist && distYAbs <= distXAbs*maxDeviation/100) {
+							if(distX < 0) {
+								nextSlide();
+							} else {
+								prevSlide();
+							}
+						} /*else if(distYAbs > minDist && distXAbs <= distYAbs*maxDeviation/100) {
+							dir = distY > 0 ? 'down' : 'up';
+						}*/
+					}
+				});
+			});
 		}
 
 		// show first slide
