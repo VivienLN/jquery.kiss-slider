@@ -15,14 +15,17 @@
 			body{background:#eee; font-family:sans-serif; color:#222;}
 				pre, code {border-radius:4px; margin:1em auto;}
 				h1 {margin-bottom:1em;}
-				h2, h3 {margin:2em auto 1em;}
-				a {color:#00beed;}
-				a:hover {color:#000; text-decoration:none;}
+				h2 {margin:2em auto 1em; padding-bottom:.5em; border-bottom:1px solid #ddd;}
+				h3 {margin:2em auto 1em; color:#444;}
+				button {color:#000; padding:16px 40px; border-radius:4px; border:1px solid #ccc; background:none; cursor:pointer; font-size:16px; margin:8px; border-bottom-width:2px;}
+					button:hover {color:#308bbb;border-color:#308bbb;}
+					.kiss-pagination button {padding:10px;}
 				.container {max-width:900px; width:auto; padding:20px; border:1px solid #ddd; background:#fff; box-shadow:0 0 0.3em #ddd; margin:2em auto;}
-					.kiss-slider{}
+					.kiss-slider{margin:20px auto;}
 						.kiss-slider li img{width: 100%;}
 					#example2 .kiss-pagination{}
 						#example2 .kiss-pagination .current{}
+				.text-center {text-align: center;}
 		</style>
 	</head>
 	<body>
@@ -35,9 +38,9 @@
 				Resize your browser: these slideshows are responsive.<br/>
 			</p>
 
-			<h2><a href="#example1">Example 1</a></h2>
-			<p>This is the basic usage of the plugin.</p>
 			<div id="example1">
+				<h2>Example 1</h2>
+				<p>This is the basic usage of the plugin.</p>
 				<ul class="kiss-slider">
 					<li><img src="img/slide01.jpg" /></li>
 					<li><img src="img/slide02.jpg" /></li>
@@ -46,10 +49,11 @@
 					<li><img src="img/slide05.jpg" /></li>
 					<li><img src="img/slide06.jpg" /></li>
 				</ul>
-				<ul class="kiss-pagination"></ul>
-				<a href="#" class="previous">&larr; previous</a>
-				<a href="#" class="next">next &rarr;</a>
-				
+				<ul class="kiss-pagination text-center"></ul>
+				<p class="text-center">
+					<button type="button" class="previous">&larr; previous</button>
+					<button type="button" class="next">next &rarr;</button>
+				</p>
 
 				<h3>HTML: </h3>
 				<pre><code class="html">
@@ -81,9 +85,9 @@
 
 			</div>
 
-			<h2><a href="#example2">Example 2</a></h2>
-			<p>Use of pagination and the startIndex parameters. Note that startIndex is 0-based so <em>startIndex: 3</em> shows the 4th slide.</p>
 			<div id="example2">
+				<h2>Example 2</h2>
+				<p>Use of pagination and the startIndex parameters. Note that startIndex is 0-based so <em>startIndex: 3</em> shows the 4th slide.</p>
 				<ul class="kiss-slider">
 					<li><img src="img/slide01.jpg" /></li>
 					<li><img src="img/slide02.jpg" /></li>
@@ -92,10 +96,11 @@
 					<li><img src="img/slide05.jpg" /></li>
 					<li><img src="img/slide06.jpg" /></li>
 				</ul>
-				<ul class="kiss-pagination"></ul>
-				<a href="#" class="previous">&larr; previous</a>
-				<a href="#" class="next">next &rarr;</a>
-
+				<ul class="kiss-pagination text-center"></ul>
+				<p class="text-center">
+					<button type="button" class="previous">&larr; previous</button>
+					<button type="button" class="next">next &rarr;</button>
+				</p>
 				<h3>HTML: </h3>
 				<pre><code class="html">
 <?php echo htmlentities('
@@ -141,11 +146,6 @@
 		<script type="text/Javascript">
 			hljs.initHighlightingOnLoad();
 			(function($) {
-				// toggles
-				$('a[href^="#"]').click(function(){
-					$(this.hash).slideToggle();
-					return false;
-				}).not(':eq(0)').click();
 				// sliders
 				$(window).load(function() {
 					// example 1

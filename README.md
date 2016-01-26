@@ -44,15 +44,15 @@ Note: Calling the plugin on `window.load()` allows to properly calculate the sli
 
 * `nextSelector (string, default: null)`
 
-	Selector for the "next" link(s). It is up to you to add it/them to HTML.
+	Selector for the "next" button(s). It is up to you to add it/them to HTML.
 
 * `prevSelector (string, default: null)`
 
-	Selector for the "previous" link(s). It is up to you to add it/them to HTML.
+	Selector for the "previous" button(s). It is up to you to add it/them to HTML.
 
 * `paginationSelector (string, default: null)`
 
-	Selector in which append the pagination links. It is advised to target a `<ul>` element (otherwise you must change the `paginationBefore` and `paginationAfter` parameters).
+	Selector in which append the pagination buttons (`<button>`elements). It is advised to target a `<ul>` element (otherwise you must change the `paginationBefore` and `paginationAfter` parameters).
 	It is up to you to add it to HTML.
 
 * `paginationBefore (string, default: '<li>')`
@@ -103,4 +103,7 @@ Note: Calling the plugin on `window.load()` allows to properly calculate the sli
 
 * `init (Function, default: null)`
 	Callback. Called when the slider is initialized and ready.
+
+* `allowSwipe (Boolean, default: true)`
+	Add touch events to navigate through slider with touch-enabled devices. Won't work with a mouse.
 

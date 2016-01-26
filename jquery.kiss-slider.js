@@ -1,6 +1,6 @@
 /*
 	JQuery KissSlider plugin
-	v1.0
+	v1.1
 	https://github.com/VivienLN/jquery.kiss-slider
 */
 (function ($) {
@@ -23,6 +23,7 @@
 			beforeSlide: null,		// callback parameters : oldIndex, newIndex.
 			afterSlide: null,		// callback parameters : oldIndex, newIndex.
 			init: null,				// calls when the slider is ready
+			allowSwipe: true		// @since 1.1 Allow swipe on touch-enabled devices
 		};
 		var s = $.extend({}, defaults, options);
 
@@ -57,9 +58,9 @@
 		// pagination
 		if(s.paginationSelector) {
 			for(var i = 0; i < $slides.length; i++) {
-				$(s.paginationBefore + '<a href="#">' + (i+1) + '</a>' + s.paginationAfter).appendTo(s.paginationSelector).data('kissSliderTarget', i);
+				$(s.paginationBefore + '<button href="#">' + (i+1) + '</button>' + s.paginationAfter).appendTo(s.paginationSelector).data('kissSliderTarget', i);
 			}
-			$('a', s.paginationSelector).click(paginationClick);
+			$('button', s.paginationSelector).click(paginationClick);
 		}
 		// autoscroll (pause when mouse over)
 		if(s.autoscrollDelay) {
@@ -73,12 +74,27 @@
 		}
 		// resize event
 		$(window).resize(resizeSlider);
+
 		// prev/next events
 		if(s.nextSelector) {
 			$(s.nextSelector).click(nextSlide);
 		}
 		if(s.prevSelector) {
 			$(s.prevSelector).click(prevSlide);
+		}
+
+		// swipe events
+		if(s.allowSwipe) {
+			var maxDuration = 1000;
+			var minDist = 100; // px
+			var maxDeviation = 50; // % of distance in an axe ; max distance in the other axis (ex if horiz swipe, max vertical distance)
+			var startX;
+			var startY;
+			var startTime;
+			$slides.each(function(){
+				this.addEventListener('touchstart', touchStartEvent, false);
+				this.addEventListener('touchend', touchEndEvent);
+			});
 		}
 
 		// show first slide
@@ -178,6 +194,41 @@
 
 		function applyCallback(fn, args) {
 			return typeof(fn) === 'function' ? fn.apply(this, args) : null;
+		}
+
+		function touchStartEvent(e) {
+			console.log('touchstart');
+			console.log(e);
+			// e.preventDefault();
+			// startX = e.pageX ? e.pageX : e.changedTouches[0].pageX;
+			// startY = e.pageY ? e.pageY : e.changedTouches[0].pageY;
+			startX = e.changedTouches[0].pageX;
+			startY = e.changedTouches[0].pageY;
+			startTime = new Date().getTime();
+		}
+
+		function touchEndEvent(e) {
+			console.log('touchend');
+			// e.preventDefault();
+			var duration = new Date().getTime() - startTime;
+			var dir = null;
+			if(duration <= maxDuration) {
+				// var distX = (e.pageX ? e.pageX : e.changedTouches[0].pageX) - startX;
+				// var distY = (e.pageY ? e.pageY : e.changedTouches[0].pageY) - startY;
+				var distX = e.changedTouches[0].pageX - startX;
+				var distY = e.changedTouches[0].pageY - startY;
+				var distXAbs = Math.abs(distX);
+				var distYAbs = Math.abs(distY);
+				if(distXAbs > minDist && distYAbs <= distXAbs*maxDeviation/100) {
+					if(distX < 0) {
+						nextSlide();
+					} else {
+						prevSlide();
+					}
+				} /*else if(distYAbs > minDist && distXAbs <= distYAbs*maxDeviation/100) {
+					dir = distY > 0 ? 'down' : 'up';
+				}*/
+			}
 		}
 
 		// return element for chaining
