@@ -4,6 +4,10 @@
 
 Kiss Slider is intended to be a flexible, responsive, yet simple jquery slideshow.
 
+## Demo
+
+[Go and take a look a the demo!](http://vivienleneez.fr/static/jquery.kiss-slider/demo/)
+
 ## Quick Start
 
 ### HTML
@@ -34,9 +38,9 @@ $(window).load(function() {
 ```
 Note: Calling the plugin on `window.load()` allows to properly calculate the slider dimensions, if you do not specify them explicitely.
 
-# Documentation
+## Documentation
 
-## Plugin parameters
+### Plugin parameters
 
 * `slideSelector (string, default: null)`
 
