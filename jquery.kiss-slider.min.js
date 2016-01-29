@@ -21,6 +21,7 @@
 
 		return this.init($container, options);
 	};
+	KissSlider.instances = [];
 
 	KissSlider.prototype.init = function($container, options) {
 		// settings
@@ -127,6 +128,9 @@
 
 		// callback init
 		that.applyCallback(s.init);
+
+		// add instance to list
+		KissSlider.instances.push(this);
 
 		// return
 		return this.$container;
@@ -262,9 +266,36 @@
 		}
 	};
 
+	KissSlider.callAction = function(target, actionName, actionParams) {
+		var instance;
+		console.log(KissSlider.instances[0]);
+		console.log(KissSlider.instances[0].$container);
+		// find the instance attached to target
+		for(var i in KissSlider.instances) {
+			if(KissSlider.instances[i].$container[0] === target[0]) {
+				instance = KissSlider.instances[i];
+				break;
+			}
+		}
+		if(instance) {
+			KissSlider.actions[actionName].call(null, instance, actionParams);
+		}
+	};
+
+	KissSlider.actions = {
+		next: function(instance, actionParams) { instance.nextSlide(); },
+		previous: function(instance, actionParams) { instance.prevSlide(); },
+		moveTo: function(instance, actionParams) { instance.moveTo(actionParams.index, actionParams.dir); }
+	};
+
 	// jquery extension (can take options object or action string as parameter)
 	$.fn.extend({
 		kissSlider: function(optionsOrAction, actionParams) {
+			if(typeof(optionsOrAction) === "string" && typeof(KissSlider.actions[optionsOrAction] === "function")) {
+				KissSlider.callAction(this, optionsOrAction, actionParams);
+				return this;
+			}
+			// else => init
 			return new KissSlider(this, optionsOrAction);
 		}
 	});

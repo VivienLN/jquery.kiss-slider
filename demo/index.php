@@ -134,6 +134,60 @@
 
 			</div>
 
+			<div id="example3">
+				<h2>Example 3</h2>
+				<p>Plugin actions.</p>
+				<ul class="kiss-slider">
+					<li><img src="img/slide01.jpg" /></li>
+					<li><img src="img/slide02.jpg" /></li>
+					<li><img src="img/slide03.jpg" /></li>
+					<li><img src="img/slide04.jpg" /></li>
+					<li><img src="img/slide05.jpg" /></li>
+					<li><img src="img/slide06.jpg" /></li>
+				</ul>
+				<ul class="kiss-pagination text-center"></ul>
+				<p class="text-center btn-actions">
+					<button type="button" data-target="0">To slide 0!</button>
+					<button type="button" data-target="3">To slide 3!</button>
+					<button type="button" data-target="4">To slide 4!</button>
+				</p>
+
+				<h3>HTML: </h3>
+				<pre><code class="html">
+<?php echo htmlentities('
+<ul id="kiss-slider">
+	<li><img src="img/slide01.jpg" /></li>
+	<li><img src="img/slide02.jpg" /></li>
+	<li><img src="img/slide03.jpg" /></li>
+	<li><img src="img/slide04.jpg" /></li>
+	<li><img src="img/slide05.jpg" /></li>
+	<li><img src="img/slide06.jpg" /></li>
+<ul class="kiss-pagination text-center"></ul>
+<p class="text-center btn-actions">
+	<button type="button" data-target="0">To slide 0!</button>
+	<button type="button" data-target="3">To slide 3!</button>
+	<button type="button" data-target="4">To slide 4!</button>
+</p>
+'); ?>
+				</code></pre>
+
+				<h3>JS: </h3>
+				<pre><code class="js">
+(function($) {
+	$(window).load(function() {
+		$('#example3 .kiss-slider').kissSlider({
+			prevSelector: '#example3 .previous',
+			nextSelector: '#example3 .next'
+		});
+		$('#example3 .btn-actions button').click(function() {
+			$('#example3 .kiss-slider').kissSlider('moveTo', {index:$(this).data('target')});
+		})
+	});
+})(jQuery);
+				</code></pre>
+
+			</div>
+
 
 			<h2>Notes</h2>
 			<p>images used:</p>
@@ -160,6 +214,14 @@
 						paginationSelector: '#example2 .kiss-pagination',
 						startIndex:3,
 					});
+					// example 3
+					$('#example3 .kiss-slider').kissSlider({
+						prevSelector: '#example3 .previous',
+						nextSelector: '#example3 .next'
+					});
+					$('#example3 .btn-actions button').click(function() {
+						$('#example3 .kiss-slider').kissSlider('moveTo', {index:$(this).data('target')});
+					})
 				});
 			})(jQuery);
 		</script>
