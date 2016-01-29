@@ -197,8 +197,6 @@
 		}
 
 		function touchStartEvent(e) {
-			console.log('touchstart');
-			console.log(e);
 			// e.preventDefault();
 			// startX = e.pageX ? e.pageX : e.changedTouches[0].pageX;
 			// startY = e.pageY ? e.pageY : e.changedTouches[0].pageY;
@@ -208,7 +206,6 @@
 		}
 
 		function touchEndEvent(e) {
-			console.log('touchend');
 			// e.preventDefault();
 			var duration = new Date().getTime() - startTime;
 			var dir = null;
