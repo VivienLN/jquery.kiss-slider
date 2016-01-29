@@ -4,7 +4,25 @@
 	https://github.com/VivienLN/jquery.kiss-slider
 */
 (function ($) {
-	$.fn.kissSlider = function(options) {
+	var KissSlider = function ($container, options) {
+		this.options = {};
+		this.$container;
+		this.$slides;
+
+		this.currentIndex;
+		this.animated = false;
+		this.slideWidth;
+		this.slideHeight;
+		this.autoscrollInterval;
+
+		this.startX;
+		this.startY;
+		this.startTime;
+
+		return this.init($container, options);
+	};
+
+	KissSlider.prototype.init = function($container, options) {
 		// settings
 		var defaults = {
 			slideSelector: null,	// if null, get the direct children
@@ -25,210 +43,230 @@
 			init: null,				// calls when the slider is ready
 			allowSwipe: true		// @since 1.1 Allow swipe on touch-enabled devices
 		};
-		var s = $.extend({}, defaults, options);
+		var that = this;
+		var s = this.options = $.extend({}, defaults, options);
 
-		// jquery collections
-		var $container = this;
-		var $slides = s.slideSelector ? $(s.slideSelector) : $container.children();
+		// variables
+		that.$container = $container;
+		that.$slides = s.slideSelector ? $(s.slideSelector) : $container.children();
 
-		// intern variables
-		var _currentIndex;
-		var _animated = false;
-		var _slideWidth;
-		var _slideHeight;
-		var _autoscrollInterval;
-
-		$slides.css({
+		// css
+		that.$slides.css({
 			position: 'absolute',
 			left: 0,
 			top: 0,
 			zIndex: s.startingZ
 		});
-		$container.css({
+		that.$container.css({
 			position: 'relative',
 			overflow: 'hidden'
 		});
 
-		resizeSlider();
+		that.resizeSlider();
 
-		$slides.css({
+		that.$slides.css({
 			width: '100%'
 		});
 
 		// pagination
 		if(s.paginationSelector) {
-			for(var i = 0; i < $slides.length; i++) {
-				$(s.paginationBefore + '<button href="#">' + (i+1) + '</button>' + s.paginationAfter).appendTo(s.paginationSelector).data('kissSliderTarget', i);
+			for(var i = 0; i < that.$slides.length; i++) {
+				$(s.paginationBefore + '<button>' + (i+1) + '</button>' + s.paginationAfter)
+				.appendTo(s.paginationSelector)
+				.data('kissSliderTarget', i);
 			}
-			$('button', s.paginationSelector).click(paginationClick);
+			$('button', s.paginationSelector).click(function(e) {
+				that.paginationClick(this);
+				e.preventDefault();
+			});
 		}
 		// autoscroll (pause when mouse over)
 		if(s.autoscrollDelay) {
-			startAutoScroll(s.autoscrollDelay);
-			$container.mouseenter(function(){
-				stopAutoScroll();
+			that.startAutoScroll(s.autoscrollDelay);
+			this.$container.mouseenter(function(){
+				that.stopAutoScroll();
 			});
-			$container.mouseleave(function(){
-				startAutoScroll(s.autoscrollDelay);
+			this.$container.mouseleave(function(){
+				that.startAutoScroll(s.autoscrollDelay);
 			});
 		}
 		// resize event
-		$(window).resize(resizeSlider);
+		$(window).resize(function() {
+			return that.resizeSlider();
+		});
 
 		// prev/next events
 		if(s.nextSelector) {
-			$(s.nextSelector).click(nextSlide);
+			$(s.nextSelector).click(function(e) {
+				that.nextSlide();
+				e.preventDefault();
+			});
 		}
 		if(s.prevSelector) {
-			$(s.prevSelector).click(prevSlide);
+			$(s.prevSelector).click(function(e) {
+				that.prevSlide();
+				e.preventDefault();
+			});
 		}
 
 		// swipe events
 		if(s.allowSwipe) {
-			var maxDuration = 1000;
-			var minDist = 100; // px
-			var maxDeviation = 50; // % of distance in an axe ; max distance in the other axis (ex if horiz swipe, max vertical distance)
-			var startX;
-			var startY;
-			var startTime;
-			$slides.each(function(){
-				this.addEventListener('touchstart', touchStartEvent, false);
-				this.addEventListener('touchend', touchEndEvent);
+			that.$slides.each(function(){
+				that.$container[0].addEventListener('touchstart', function() {
+					that.touchStartEvent();
+				}, false);
+				that.$container[0].addEventListener('touchend', function() {
+					that.touchEndEvent();
+				});
 			});
 		}
 
 		// show first slide
-		_currentIndex = s.startIndex < $slides.length ? s.startIndex : 0;
-		$slides.hide().eq(_currentIndex).show();
+		that.currentIndex = s.startIndex < that.$slides.length ? s.startIndex : 0;
+		that.$slides.hide().eq(that.currentIndex).show();
 
 		// callback init
-		applyCallback(s.init);
+		that.applyCallback(s.init);
 
-		function resizeSlider() {
-			_slideWidth = $container.innerWidth();
-			_slideHeight = 0;
-			$slides.each(function() {
-				_slideHeight = Math.max(_slideHeight, $(this).outerHeight(true));
-			});
-			$container.css('height', _slideHeight);
+		// return
+		return this.$container;
+	};
+
+
+	KissSlider.prototype.resizeSlider = function() {
+		var that = this;
+		that.slideWidth = that.$container.innerWidth();
+		that.slideHeight = 0;
+		that.$slides.each(function() {
+			that.slideHeight = Math.max(that.slideHeight, $(this).outerHeight(true));
+		});
+		that.$container.css('height', that.slideHeight);
+	};
+
+	KissSlider.prototype.startAutoScroll = function(delay) {
+		if(!this.autoscrollInterval) {
+			this.autoscrollInterval = setInterval(function() {
+				this.nextSlide();
+			}, delay);
 		}
+	};
 
-		function startAutoScroll(delay) {
-			if(!_autoscrollInterval) {
-				_autoscrollInterval = setInterval(function() {
-					nextSlide();
-				}, delay);
-			}
-		}
+	KissSlider.prototype.stopAutoScroll = function() {
+		clearInterval(this.autoscrollInterval);
+		this.autoscrollInterval = null;
+	};
 
-		function stopAutoScroll() {
-			clearInterval(_autoscrollInterval);
-			_autoscrollInterval = null;
-		}
-
-		// functions
-		// @param int index index of the slide to reach
-		// @param int dir 1 or -1 (respectively slide to the right and to the left)
-		// @param bool noAnim whether or not to skip the animation
-		// --------------------------------------
-		function moveTo(index, dir, noAnim) {
-			if(_animated || index == _currentIndex) {
-				return false;
-			}
-			_animated = true;
-
-			index = Math.max(0, Math.min(index, $slides.length));
-			dir = dir || 1;
-
-
-			var $target = $slides.eq(index);
-			var $current = $slides.eq(_currentIndex);
-
-			applyCallback(s.beforeSlide, [_currentIndex, index]);
-
-			$current.css('zIndex', s.startingZ + 1);
-			$target.css('zIndex', s.startingZ + 2).show();
-			$slides.not($target).not($current).hide();
-			if(noAnim || s.noAnim) {
-				$target.css('left', 0);
-				// applyCallback(s.afterSlide, [_currentIndex, index]); // should be called???
-				_currentIndex = index;
-				_animated = false;
-			} else {
-				var targetLeftFrom = _slideWidth * dir;
-				var distance = -_slideWidth * dir;
-				$target.css('left', targetLeftFrom).add($current).animate({left:'+=' + distance}, s.slideDuration, s.easing, function() {
-					finishSlide(index);
-				});
-			}
+	// functions
+	// @param int index index of the slide to reach
+	// @param int dir 1 or -1 (respectively slide to the right and to the left)
+	// @param bool noAnim whether or not to skip the animation
+	// --------------------------------------
+	KissSlider.prototype.moveTo = function(index, dir, noAnim) {
+		if(this.animated || index == this.currentIndex) {
 			return false;
 		}
+		this.animated = true;
 
-		function finishSlide(newIndex) {
-			if(!_animated) {
-				return;
-			}
-			applyCallback(s.afterSlide, [_currentIndex, newIndex]);
-			_currentIndex = newIndex;
-			_animated = false;
+		index = Math.max(0, Math.min(index, this.$slides.length));
+		dir = dir || 1;
+
+
+		var $target = this.$slides.eq(index);
+		var $current = this.$slides.eq(this.currentIndex);
+		var that = this;
+
+		this.applyCallback(this.options.beforeSlide, [this.currentIndex, index]);
+
+		$current.css('zIndex', this.options.startingZ + 1);
+		$target.css('zIndex', this.options.startingZ + 2).show();
+		this.$slides.not($target).not($current).hide();
+		if(noAnim || this.options.noAnim) {
+			$target.css('left', 0);
+			// applyCallback(this.options.afterSlide, [_currentIndex, index]); // should be called???
+			this.currentIndex = index;
+			this.animated = false;
+		} else {
+			var targetLeftFrom = this.slideWidth * dir;
+			var distance = -this.slideWidth * dir;
+			$target.css('left', targetLeftFrom).add($current).animate({left:'+=' + distance}, this.options.slideDuration, this.options.easing, function() {
+				that.finishSlide(index);
+			});
 		}
-
-		function paginationClick() {
-			var index = $(this).data('kissSliderTarget');
-			if(isNaN(index)) {
-				return false;
-			}
-			var dir = index > _currentIndex ? 1 : -1;
-			return moveTo(index, dir);
-		}
-
-		function nextSlide() {
-			var target = _currentIndex + 1 < $slides.length ? _currentIndex + 1 : 0;
-			return moveTo(target, 1);
-		}
-
-		function prevSlide() {
-			var target = _currentIndex - 1 >= 0 ? _currentIndex - 1 : $slides.length - 1;
-			return moveTo(target, -1);
-		}
-
-		function applyCallback(fn, args) {
-			return typeof(fn) === 'function' ? fn.apply(this, args) : null;
-		}
-
-		function touchStartEvent(e) {
-			// e.preventDefault();
-			// startX = e.pageX ? e.pageX : e.changedTouches[0].pageX;
-			// startY = e.pageY ? e.pageY : e.changedTouches[0].pageY;
-			startX = e.changedTouches[0].pageX;
-			startY = e.changedTouches[0].pageY;
-			startTime = new Date().getTime();
-		}
-
-		function touchEndEvent(e) {
-			// e.preventDefault();
-			var duration = new Date().getTime() - startTime;
-			var dir = null;
-			if(duration <= maxDuration) {
-				// var distX = (e.pageX ? e.pageX : e.changedTouches[0].pageX) - startX;
-				// var distY = (e.pageY ? e.pageY : e.changedTouches[0].pageY) - startY;
-				var distX = e.changedTouches[0].pageX - startX;
-				var distY = e.changedTouches[0].pageY - startY;
-				var distXAbs = Math.abs(distX);
-				var distYAbs = Math.abs(distY);
-				if(distXAbs > minDist && distYAbs <= distXAbs*maxDeviation/100) {
-					if(distX < 0) {
-						nextSlide();
-					} else {
-						prevSlide();
-					}
-				} /*else if(distYAbs > minDist && distXAbs <= distYAbs*maxDeviation/100) {
-					dir = distY > 0 ? 'down' : 'up';
-				}*/
-			}
-		}
-
-		// return element for chaining
-		return this;
+		return false;
 	};
+
+	KissSlider.prototype.finishSlide = function(newIndex) {
+		if(!this.animated) {
+			return;
+		}
+		this.applyCallback(this.options.afterSlide, [this.currentIndex, newIndex]);
+		this.currentIndex = newIndex;
+		this.animated = false;
+	};
+
+	KissSlider.prototype.paginationClick = function(target) {
+		var index = $(target).data('kissSliderTarget');
+		if(isNaN(index)) {
+			return false;
+		}
+		var dir = index > this.currentIndex ? 1 : -1;
+		return this.moveTo(index, dir);
+	};
+
+	KissSlider.prototype.nextSlide = function() {
+		var target = this.currentIndex + 1 < this.$slides.length ? this.currentIndex + 1 : 0;
+		return this.moveTo(target, 1);
+	};
+
+	KissSlider.prototype.prevSlide = function() {
+		var target = this.currentIndex - 1 >= 0 ? this.currentIndex - 1 : this.$slides.length - 1;
+		return this.moveTo(target, -1);
+	};
+
+	KissSlider.prototype.applyCallback = function(fn, args) {
+		return typeof(fn) === 'function' ? fn.apply(this, args) : null;
+	};
+
+	KissSlider.prototype.touchStartEvent = function(e) {
+		// e.preventDefault();
+		// startX = e.pageX ? e.pageX : e.changedTouches[0].pageX;
+		// startY = e.pageY ? e.pageY : e.changedTouches[0].pageY;
+		this.startX = e.changedTouches[0].pageX;
+		this.startY = e.changedTouches[0].pageY;
+		this.startTime = new Date().getTime();
+	};
+
+	KissSlider.prototype.touchEndEvent = function(e) {
+		// e.preventDefault();
+		var maxDuration = 1000;
+		var minDist = 100; // px
+		var maxDeviation = 50; // % of distance in an axe ; max distance in the other axis (ex if horiz swipe, max vertical distance)
+		var duration = new Date().getTime() - this.startTime;
+		var dir = null;
+		if(duration <= maxDuration) {
+			// var distX = (e.pageX ? e.pageX : e.changedTouches[0].pageX) - startX;
+			// var distY = (e.pageY ? e.pageY : e.changedTouches[0].pageY) - startY;
+			var distX = e.changedTouches[0].pageX - this.startX;
+			var distY = e.changedTouches[0].pageY - this.startY;
+			var distXAbs = Math.abs(distX);
+			var distYAbs = Math.abs(distY);
+			if(distXAbs > minDist && distYAbs <= distXAbs*maxDeviation/100) {
+				if(distX < 0) {
+					this.nextSlide();
+				} else {
+					this.prevSlide();
+				}
+			} /*else if(distYAbs > minDist && distXAbs <= distYAbs*maxDeviation/100) {
+				dir = distY > 0 ? 'down' : 'up';
+			}*/
+		}
+	};
+
+	// jquery extension (can take options object or action string as parameter)
+	$.fn.extend({
+		kissSlider: function(optionsOrAction, actionParams) {
+			return new KissSlider(this, optionsOrAction);
+		}
+	});
+
 }(jQuery));
