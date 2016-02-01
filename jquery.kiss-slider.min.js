@@ -268,8 +268,6 @@
 
 	KissSlider.callAction = function(target, actionName, actionParams) {
 		var instance;
-		console.log(KissSlider.instances[0]);
-		console.log(KissSlider.instances[0].$container);
 		// find the instance attached to target
 		for(var i in KissSlider.instances) {
 			if(KissSlider.instances[i].$container[0] === target[0]) {
