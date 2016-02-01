@@ -111,3 +111,26 @@ Note: Calling the plugin on `window.load()` allows to properly calculate the sli
 * `allowSwipe (Boolean, default: true)`
 	Add touch events to navigate through slider with touch-enabled devices. Won't work with a mouse.
 
+### Plugin actions
+
+Actions can be called using the same syntax, passing parameters as an object in second argument, for example:
+```js
+$('#kiss-slider').kissSlider('moveTo', {index:2});
+```
+
+* `next`
+
+	Go to next slide. No parameter.
+	
+* `previous`
+
+	Go to previous slide. No parameter.
+	
+* `moveTo`
+
+	Go to previous slide.
+	Parameters:
+	* `index (int)`: 0-based index of the slide to show
+	* `dir (int, default:1)`: `1` to make the slides go right to left, `-1` to go the other way.
+	
+
