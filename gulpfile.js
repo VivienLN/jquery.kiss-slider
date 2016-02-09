@@ -21,9 +21,9 @@ gulp.task('js', function() {
 		.pipe(plumber())
 		.pipe(jshint())
 		.pipe(jshint.reporter('default'))
-		// .pipe(uglify({
-		// 	preserveComments: 'license'
-		// }))
+		.pipe(uglify({
+			preserveComments: 'license'
+		}))
 		.pipe(rename(minFile))
 		.pipe(gulp.dest('./'));
 });
