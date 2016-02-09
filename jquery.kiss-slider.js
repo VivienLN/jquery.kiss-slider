@@ -1,6 +1,6 @@
 /*
 	JQuery KissSlider plugin
-	v1.3
+	v1.4
 	https://github.com/VivienLN/jquery.kiss-slider
 */
 (function ($) {
@@ -70,7 +70,7 @@
 		});
 
 		// pagination
-		if(s.paginationSelector) {
+		if(s.paginationSelector && that.$slides.length > 1) {
 			for(var i = 0; i < that.$slides.length; i++) {
 				$(s.paginationBefore + '<button>' + (i+1) + '</button>' + s.paginationAfter)
 				.appendTo(s.paginationSelector)
