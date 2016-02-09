@@ -294,7 +294,10 @@
 				return this;
 			}
 			// else => init
-			return new KissSlider(this, optionsOrAction);
+			this.each(function(){
+				new KissSlider($(this), optionsOrAction);
+			});
+			return this;
 		}
 	});
 
