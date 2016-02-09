@@ -80,6 +80,11 @@
 				that.paginationClick(this);
 				e.preventDefault();
 			});
+			$('button', s.paginationSelector)
+			.filter(function(){
+				return $(this).data('kissSliderTarget') == s.startIndex;
+			})
+			.addClass('active');
 		}
 		// autoscroll (pause when mouse over)
 		if(s.autoscrollDelay) {
@@ -174,7 +179,6 @@
 		index = Math.max(0, Math.min(index, this.$slides.length));
 		dir = dir || 1;
 
-
 		var $target = this.$slides.eq(index);
 		var $current = this.$slides.eq(this.currentIndex);
 		var that = this;
@@ -184,6 +188,16 @@
 		$current.css('zIndex', this.options.startingZ + 1);
 		$target.css('zIndex', this.options.startingZ + 2).show();
 		this.$slides.not($target).not($current).hide();
+
+		if(this.options.paginationSelector) {
+			$('button', this.options.paginationSelector)
+			.removeClass('active')
+			.filter(function(){
+				return $(this).data('kissSliderTarget') == index;
+			})
+			.addClass('active');
+		}
+
 		if(noAnim || this.options.noAnim) {
 			$target.css('left', 0);
 			// applyCallback(this.options.afterSlide, [_currentIndex, index]); // should be called???
