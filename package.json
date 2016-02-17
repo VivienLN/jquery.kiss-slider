@@ -1,0 +1,28 @@
+{
+  "name": "jquery.kiss-slider",
+  "version": "1.4.0",
+  "description": "Kiss Slider is intended to be a flexible, responsive, yet simple jquery slideshow.",
+  "main": "jquery.kiss-slider.js",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-jshint": "^2.0.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^1.5.2",
+    "jshint": "^2.9.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VivienLN/jquery.kiss-slider.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VivienLN/jquery.kiss-slider/issues"
+  },
+  "homepage": "https://github.com/VivienLN/jquery.kiss-slider#readme"
+}
