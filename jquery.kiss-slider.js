@@ -1,6 +1,6 @@
 /*
 	JQuery KissSlider plugin
-	v1.4
+	v1.4.1
 	https://github.com/VivienLN/jquery.kiss-slider
 */
 (function ($) {
@@ -117,13 +117,11 @@
 
 		// swipe events
 		if(s.allowSwipe) {
-			that.$slides.each(function(){
-				that.$container[0].addEventListener('touchstart', function() {
-					that.touchStartEvent();
-				}, false);
-				that.$container[0].addEventListener('touchend', function() {
-					that.touchEndEvent();
-				});
+			that.$container[0].addEventListener('touchstart', function(e) {
+				that.touchStartEvent(e);
+			}, false);
+			that.$container[0].addEventListener('touchend', function(e) {
+				that.touchEndEvent(e);
 			});
 		}
 
