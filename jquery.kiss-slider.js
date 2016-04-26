@@ -1,6 +1,6 @@
 /*
 	JQuery KissSlider plugin
-	v1.4.1
+	v1.4.2
 	https://github.com/VivienLN/jquery.kiss-slider
 */
 (function ($) {
@@ -151,9 +151,10 @@
 	};
 
 	KissSlider.prototype.startAutoScroll = function(delay) {
+		var that = this;
 		if(!this.autoscrollInterval) {
 			this.autoscrollInterval = setInterval(function() {
-				this.nextSlide();
+				that.nextSlide();
 			}, delay);
 		}
 	};
