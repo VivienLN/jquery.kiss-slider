@@ -1,6 +1,6 @@
 /*
 	JQuery KissSlider plugin
-	v1.4.2
+	v1.4.3
 	https://github.com/VivienLN/jquery.kiss-slider
 */
 (function ($) {
@@ -49,25 +49,9 @@
 
 		// variables
 		that.$container = $container;
-		that.$slides = s.slideSelector ? $(s.slideSelector) : $container.children();
 
-		// css
-		that.$slides.css({
-			position: 'absolute',
-			left: 0,
-			top: 0,
-			zIndex: s.startingZ
-		});
-		that.$container.css({
-			position: 'relative',
-			overflow: 'hidden'
-		});
-
-		that.resizeSlider();
-
-		that.$slides.css({
-			width: '100%'
-		});
+		// set slidse css and add them to list
+		that.refreshSlides();
 
 		// pagination
 		if(s.paginationSelector && that.$slides.length > 1) {
@@ -139,6 +123,29 @@
 		return this.$container;
 	};
 
+	KissSlider.prototype.refreshSlides = function() {
+		var s = this.options;
+
+		this.$slides = s.slideSelector ? $(s.slideSelector) : $container.children();
+
+		// css
+		this.$slides.css({
+			position: 'absolute',
+			left: 0,
+			top: 0,
+			zIndex: s.startingZ
+		});
+		this.$container.css({
+			position: 'relative',
+			overflow: 'hidden'
+		});
+
+		this.resizeSlider();
+
+		this.$slides.css({
+			width: '100%'
+		});
+	};
 
 	KissSlider.prototype.resizeSlider = function() {
 		var that = this;
@@ -296,7 +303,8 @@
 	KissSlider.actions = {
 		next: function(instance, actionParams) { instance.nextSlide(); },
 		previous: function(instance, actionParams) { instance.prevSlide(); },
-		moveTo: function(instance, actionParams) { instance.moveTo(actionParams.index, actionParams.dir); }
+		moveTo: function(instance, actionParams) { instance.moveTo(actionParams.index, actionParams.dir); },
+		refresh: function(instance, actionParams) { instance.refreshSlides(); }
 	};
 
 	// jquery extension (can take options object or action string as parameter)
