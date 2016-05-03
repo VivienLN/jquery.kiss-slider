@@ -137,8 +137,14 @@ $('#kiss-slider').kissSlider('moveTo', {index:2});
 	* `index (int)`: 0-based index of the slide to show
 	* `dir (int, default:1)`: `1` to make the slides go right to left, `-1` to go the other way.
 	
-* `refresh`
+* `startAutoScroll`
 
-	Refresh slides list. You can use it after adding slides with ajax, in order to properly update slideshow.
+	Start autmatic scrolling of slides.
+	Parameters:
+	* `delay`: if not specified, the slider will use the `autoscrollDelay` option value
+	
+* `stopAutoScroll`
+
+	Stop autmatic scrolling of slides.
 	
 
