@@ -1,6 +1,6 @@
 /*
 	JQuery KissSlider plugin
-	v1.4.3
+	v1.4.4
 	https://github.com/VivienLN/jquery.kiss-slider
 */
 (function ($) {
@@ -38,6 +38,7 @@
 			slideDuration: 400,
 			easing: 'swing',
 			autoscrollDelay: 0,
+			alwaysAutoscroll: false,// @since 1.4.4 Do not disable autoscroll when mouse is over the slideshow
 			noAnim: false,			// Do not animate the slider
 			beforeSlide: null,		// callback parameters : oldIndex, newIndex.
 			afterSlide: null,		// callback parameters : oldIndex, newIndex.
@@ -73,12 +74,14 @@
 		// autoscroll (pause when mouse over)
 		if(s.autoscrollDelay) {
 			that.startAutoScroll(s.autoscrollDelay);
-			this.$container.mouseenter(function(){
-				that.stopAutoScroll();
-			});
-			this.$container.mouseleave(function(){
-				that.startAutoScroll(s.autoscrollDelay);
-			});
+			if(!s.alwaysAutoscroll) {
+				this.$container.mouseenter(function(){
+					that.stopAutoScroll();
+				});
+				this.$container.mouseleave(function(){
+					that.startAutoScroll(s.autoscrollDelay);
+				});
+			}
 		}
 		// resize event
 		$(window).resize(function() {

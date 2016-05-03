@@ -71,6 +71,10 @@ Note: Calling the plugin on `window.load()` allows to properly calculate the sli
 
 	Delay for automatic scrolling; set to 0 (default)to disable autoscroll.
 
+* `alwaysAutoscroll (boolean, default: false)`
+
+	Never disable autoscroll, even when mouse is over the slideshow
+
 * `startIndex (int, default: 0)`
 
 	0-based index of the slide to display first.
@@ -128,9 +132,13 @@ $('#kiss-slider').kissSlider('moveTo', {index:2});
 	
 * `moveTo`
 
-	Go to previous slide.
+	Go to given slide.
 	Parameters:
 	* `index (int)`: 0-based index of the slide to show
 	* `dir (int, default:1)`: `1` to make the slides go right to left, `-1` to go the other way.
+	
+* `refresh`
+
+	Refresh slides list. You can use it after adding slides with ajax, in order to properly update slideshow.
 	
 
