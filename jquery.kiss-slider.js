@@ -1,6 +1,6 @@
 /*
 	JQuery KissSlider plugin
-	v1.4.6
+	v1.4.5
 	https://github.com/VivienLN/jquery.kiss-slider
 */
 (function ($) {
