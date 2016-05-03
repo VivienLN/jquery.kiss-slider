@@ -1,6 +1,6 @@
 /*
 	JQuery KissSlider plugin
-	v1.4.4
+	v1.4.5
 	https://github.com/VivienLN/jquery.kiss-slider
 */
 (function ($) {
@@ -50,6 +50,10 @@
 
 		// variables
 		that.$container = $container;
+
+		// show first slide
+		that.$slides = s.slideSelector ? $(s.slideSelector) : this.$container.children();
+		that.currentIndex = s.startIndex < that.$slides.length ? s.startIndex : 0;
 
 		// set slidse css and add them to list
 		that.refreshSlides();
@@ -112,10 +116,6 @@
 			});
 		}
 
-		// show first slide
-		that.currentIndex = s.startIndex < that.$slides.length ? s.startIndex : 0;
-		that.$slides.hide().eq(that.currentIndex).show();
-
 		// callback init
 		that.applyCallback(s.init);
 
@@ -129,7 +129,7 @@
 	KissSlider.prototype.refreshSlides = function() {
 		var s = this.options;
 
-		this.$slides = s.slideSelector ? $(s.slideSelector) : $container.children();
+		this.$slides = s.slideSelector ? $(s.slideSelector) : this.$container.children();
 
 		// css
 		this.$slides.css({
@@ -148,6 +148,8 @@
 		this.$slides.css({
 			width: '100%'
 		});
+		
+		this.$slides.hide().eq(this.currentIndex).show();
 	};
 
 	KissSlider.prototype.resizeSlider = function() {
