@@ -6,18 +6,18 @@
 (function ($) {
 	var KissSlider = function ($container, options) {
 		this.options = {};
-		this.$container;
-		this.$slides;
+		this.$container = null;
+		this.$slides = null;
 
-		this.currentIndex;
+		this.currentIndex = null;
 		this.animated = false;
-		this.slideWidth;
-		this.slideHeight;
-		this.autoscrollInterval;
+		this.slideWidth = null;
+		this.slideHeight = null;
+		this.autoscrollInterval = null;
 
-		this.startX;
-		this.startY;
-		this.startTime;
+		this.startX = null;
+		this.startY = null;
+		this.startTime = null;
 
 		return this.init($container, options);
 	};
@@ -182,19 +182,20 @@
 	// @param bool noAnim whether or not to skip the animation
 	// --------------------------------------
 	KissSlider.prototype.moveTo = function(index, dir, noAnim) {
+		index = Math.max(0, Math.min(index, this.$slides.length));
+		this.applyCallback(this.options.beforeSlide, [this.currentIndex, index]);
+		
 		if(this.animated || index == this.currentIndex) {
+			this.applyCallback(this.options.afterSlide, [index, index]);
 			return false;
 		}
 		this.animated = true;
 
-		index = Math.max(0, Math.min(index, this.$slides.length));
 		dir = dir || 1;
 
 		var $target = this.$slides.eq(index);
 		var $current = this.$slides.eq(this.currentIndex);
 		var that = this;
-
-		this.applyCallback(this.options.beforeSlide, [this.currentIndex, index]);
 
 		$current.css('zIndex', this.options.startingZ + 1);
 		$target.css('zIndex', this.options.startingZ + 2).show();
