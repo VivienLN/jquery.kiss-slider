@@ -122,6 +122,11 @@ Actions can be called using the same syntax, passing parameters as an object in 
 $('#kiss-slider').kissSlider('moveTo', {index:2});
 ```
 
+	
+* `clean`
+
+	Removes all slides from DOM, except for the current one, and internally updates currentIndex.
+
 * `next`
 
 	Go to next slide. No parameter.
@@ -145,6 +150,6 @@ $('#kiss-slider').kissSlider('moveTo', {index:2});
 	
 * `stopAutoScroll`
 
-	Stop autmatic scrolling of slides.
+	Stop automatic scrolling of slides.
 	
 

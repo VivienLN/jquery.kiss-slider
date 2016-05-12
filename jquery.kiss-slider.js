@@ -1,6 +1,6 @@
 /*
 	JQuery KissSlider plugin
-	v1.4.6
+	v1.4.7
 	https://github.com/VivienLN/jquery.kiss-slider
 */
 (function ($) {
@@ -150,6 +150,13 @@
 		});
 		
 		this.$slides.hide().eq(this.currentIndex).show();
+	};
+
+	KissSlider.prototype.cleanSlides = function() {
+		var s = this.options;
+		var $current = this.$slides.eq(this.currentIndex);
+		this.$slides.not($current).remove();
+		this.currentIndex = $current.index();
 	};
 
 	KissSlider.prototype.resizeSlider = function() {
@@ -315,7 +322,8 @@
 			var delay = (actionParams && actionParams.delay) ? actionParams.delay : instance.options.autoscrollDelay; 
 			instance.startAutoScroll(delay); 
 		},
-		stopAutoScroll: function(instance, actionParams) { instance.stopAutoScroll(); }
+		stopAutoScroll: function(instance, actionParams) { instance.stopAutoScroll(); },
+		clean: function(instance, actionParams) { instance.cleanSlides(); }
 	};
 
 	// jquery extension (can take options object or action string as parameter)
