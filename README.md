@@ -115,6 +115,7 @@ Note: Calling the plugin on `window.load()` allows to properly calculate the sli
 * `allowSwipe (Boolean, default: true)`
 	Add touch events to navigate through slider with touch-enabled devices. Won't work with a mouse.
 
+
 ### Plugin actions
 
 Actions can be called using the same syntax, passing parameters as an object in second argument, for example:
@@ -123,28 +124,20 @@ $('#kiss-slider').kissSlider('moveTo', {index:2});
 ```
 
 	
-* `clean`
-
-	Removes all slides from DOM, except for the current one, and internally updates currentIndex. Does not call refresh().
-	
-* `refresh`
-
-	Visually updates slider. Call it after you alter the DOM inside the slider.
-
-* `next`
-
-	Go to next slide. No parameter.
-	
-* `previous`
-
-	Go to previous slide. No parameter.
-	
 * `moveTo`
 
 	Go to given slide.
 	Parameters:
 	* `index (int)`: 0-based index of the slide to show
 	* `dir (int, default:1)`: `1` to make the slides go right to left, `-1` to go the other way.
+	
+* `previous`
+
+	Go to previous slide. No parameter.
+	
+* `next`
+
+	Go to next slide. No parameter.
 	
 * `startAutoScroll`
 
@@ -155,5 +148,13 @@ $('#kiss-slider').kissSlider('moveTo', {index:2});
 * `stopAutoScroll`
 
 	Stop automatic scrolling of slides.
+
+* `refresh`
+
+	Visually updates slider. Call it after you alter the DOM inside the slider.
+	
+* `clean`
+
+	Removes all slides from DOM, except for the current one, and internally updates currentIndex. Does not call refresh().
 	
 
