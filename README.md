@@ -125,7 +125,11 @@ $('#kiss-slider').kissSlider('moveTo', {index:2});
 	
 * `clean`
 
-	Removes all slides from DOM, except for the current one, and internally updates currentIndex.
+	Removes all slides from DOM, except for the current one, and internally updates currentIndex. Does not call refresh().
+	
+* `refresh`
+
+	Visually updates slider. Call it after you alter the DOM inside the slider.
 
 * `next`
 
